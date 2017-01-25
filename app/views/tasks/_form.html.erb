@@ -1,0 +1,42 @@
+<%= form_for(task, html: {multipart: true}) do |f| %>
+  <% if task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :name, :for => "taskname" %>
+    <%= f.text_field :name, :class => "form-control", :id => "taskname", :placeholder =>"task name" ,:required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :description, :for => "taskdescription" %>
+    <%= f.text_area :description, :class => "form-control", :id => "taskdescription", :placeholder => "task description", :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :picture , :for => "taskpicture" %>
+    <%= f.file_field :picture, :id => "taskpicture", :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :task_date, :for => "taskdate" %>
+    <%= f.date_field :date, :class => "form-control", :id => "taskdate", :required => true %>
+  </div>
+
+  <div class="field form-group">
+    <%= f.label :task_time, :for => "tasktime" %>
+    <%= f.time_field :time, :class => "form-control", :id => "tasktime", :required => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit :class => "btn btn-default"%>
+  </div>
+<% end %>

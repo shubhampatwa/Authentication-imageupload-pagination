@@ -1,0 +1,36 @@
+<div class='row'> 
+	<div class="col-sm-2">
+		<p>
+		  <strong>Name:</strong>
+		  <%= @task.name %>
+		</p>
+	</div>
+	<div class="col-sm-3">
+		<p>
+		  <strong>Description:</strong>
+		  <%= @task.description %>
+		</p>
+	</div>
+	<div class="col-sm-3">
+		<p>
+		  <strong>Picture:</strong>
+		 <%= image_tag(@task.picture_url, width: 300) if @task.picture.present? %>
+		</p>
+	</div>
+	<div class="col-sm-2">
+		<p>
+		  <strong>Date:</strong>
+		  <%= @task.date %>
+		</p>
+	</div>
+	<div class="col-sm-1">
+		<p>
+		  <strong>Time:</strong>
+		  <%= @task.time.to_s(:time) if @task.time.present? %>
+		</p>
+	</div>
+	<div class="col-sm-1">
+		<%= link_to 'Edit', edit_task_path(@task) %> |
+		<%= link_to 'Back', tasks_path %>
+	</div>
+</div>	
